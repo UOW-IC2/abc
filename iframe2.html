@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Worker Example</title>
+</head>
+<body>
+    <h1>Service Worker Caching Example</h1>
+    <p>This image will be cached by the Service Worker:</p>
+    <img src="ok.jpg" alt="Image 3" style="width:300px;height:auto;">
+    <img src="1.png" alt="Image 1" style="width:300px;height:auto;">
+
+    <!-- <script src="script.js"> -->
+    <script type="text/javascript">
+        // JavaScript to redirect the page
+        //window.location.href = "https://site2.com:3002/redirect.html";
+    </script>
+
+    <!-- <script>
+        window.addEventListener('load', function() {
+            let totalSize = 0;
+            let id = '';
+            let resources = performance.getEntriesByType('resource');
+
+            resources.forEach((resource) => {
+                if (resource.name === 'http://localhost:3001/ok.jpg') {
+                    totalSize += resource.transferSize;
+                    if (resource.transferSize > 0) {
+                        id = id +'1';
+                    } else {
+                        id = id + '0';
+                    }
+                }
+                if (resource.name === 'http://localhost:3001/1.png') {
+                    totalSize += resource.transferSize;
+                    
+                    if (resource.transferSize > 0) {
+                        id = id +'1';
+                    } else {
+                        id = id + '0';
+                    }
+                }
+            });
+
+            console.log('Sending total size:', totalSize);
+            console.log('sending id:', id);
+            // Send id to the parent window
+            window.parent.postMessage({ id: id }, '*');
+        });
+    </script> -->
+</body>
+</html>
+
