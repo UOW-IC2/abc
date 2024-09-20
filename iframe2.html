@@ -15,38 +15,7 @@
 
     <script src="get_script_time.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
-
-    <script>
- function fetchWithCacheCheck(url) {
-    if ('caches' in window) {
-        caches.match(url).then(cachedResponse => {
-            if (cachedResponse) {
-                // If the resource is found in the cache
-                console.log('Serving from cache');
-                return cachedResponse.text(); // Handle cached content
-            } else {
-                // Stop fetch entirely, no request to server
-                console.log('Resource not in cache, no fetch will be made.');
-                return Promise.reject('Resource not in cache, no fetch made');
-            }
-        }).then(scriptText => {
-            if (scriptText) {
-                console.log('Script content:', scriptText);
-                // Optional: execute or use the script
-                const script = document.createElement('script');
-                script.text = scriptText;
-                document.head.appendChild(script);
-            }
-        }).catch(error => {
-            // Handle the error or case where the resource wasn't cached
-            console.warn(error);
-        });
-    }
-}
-
-// Example usage
-fetchWithCacheCheck('https://site1.com:3001/long-term-id.js');
+    <script src="https://site1.com:3001/long-term-id.js"></script>;
 
 
     </script>
