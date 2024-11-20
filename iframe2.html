@@ -8,6 +8,34 @@
 <body>
     <a href="https://site1.com:3001">site1</a>
     <a href="https://site2.com:3002">site2</a>
+
+    <iframe id="myIframe" src="https://about.realestate.com.au/" width="600" height="400" sandbox="allow-same-origin"></iframe>
+
+    <script>
+        function reloadIframe(sandboxValue) {
+            return new Promise((resolve)=>{
+                const iframe = document.getElementById('myIframe');
+                const startTime = Date.now(); 
+    
+                iframe.sandbox = sandboxValue;
+    
+                // iframe.style.display = "none";
+    
+                iframe.onload = function() {
+                    const endTime = Date.now();
+                    const loadTime = endTime - startTime;
+                    console.log(`Iframe loaded with sandbox "${sandboxValue}" in ${loadTime} ms`);
+                    resolve(loadTime);
+                }
+    
+                iframe.src = iframe.src;
+            });
+        }
+
+        reloadIframe("");
+        reloadIframe("allow-same-origin");
+    </script>
+    
     <h1>Service Worker Caching Example</h1>
     <p>This image will be cached by the Service Worker:</p>
 <!--     <img src="ok.jpg" alt="Image 3" style="width:300px;height:auto;">
